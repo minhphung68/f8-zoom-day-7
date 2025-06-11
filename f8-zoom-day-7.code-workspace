@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../f8-fullstack-day-3"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "f8-zoom-day-7"
+	}
+}
