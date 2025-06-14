@@ -11,6 +11,7 @@
 
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -89,17 +90,28 @@ button {
 }
 
 .nav li:hover .submenu {
-    display: block;
+    /* display: block; */
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
 }
 
 /* Sub-menu */
 .submenu {
-    display: none;
+    /* display: none; */
+    opacity: 0;
     position: absolute;
-    top: 54px;
+    top: 100%;
     left: 0;
     min-width: 220px;
     background: var(--white);
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transform: scale(1,0);
+    -webkit-transform: scale(1,0);
+    transform-origin: 100% 2%;
+    -webkit-transform-origin: 100% 2%;
+    box-shadow: 0px 13px 25px -12px rgba(0,0,0,0.25);
 }
 
 .submenu::before {
@@ -115,6 +127,7 @@ button {
 .submenu a {
     display: flex;
     text-decoration: none;
+    color: rgba(0,0,0,0.6);
     height: 44px;
     align-items: center;
     padding: 0 24px;
@@ -229,6 +242,7 @@ button {
 .breadcrumbs > li > a {
     color: rgba(255,255,255,0.8);
     text-decoration: none;
+    transition: all .3s ease-in-out;
 }
 
 .breadcrumbs > li > a:hover {
@@ -293,6 +307,8 @@ button {
 }
 
 .content .card {
+    position: relative;
+    overflow: hidden;
     flex: 0 0 calc((100% - 60px) / 3);
 }
 
@@ -576,20 +592,50 @@ footer .footer-subscribe input {
     color: rgba(255,255,255,0.6);
 }
 
-footer .footer-subscribe .btn-send {
-    width: 95px;
-    line-height: 40px;
-    border-radius: 20px;
+.btn-send {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    position: relative;
     color: #fff;
+    height: 40px;
+    width: 95px;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    line-height: 32px;
+    padding: 0px 14px 0px;
+    border-radius:100px;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    background: #b80257;
+    background-color: #b80257;
 }
 
-footer .footer-subscribe .btn-send:hover {
-    color: #b80257;
-    background: white;
+.btn-send span {
+    position: relative;
+    z-index: 1;
 }
+
+.btn-send:hover {
+    color: #b80257;
+    background-color: white;
+}
+
+.btn-send::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 999px;
+    height: 40px;
+    width: 95px;
+    transition: all 0.3s ease-in-out;
+    background-color: #fff;
+    scale: 0;
+}
+
+
 
 footer .inner {
     display: flex;
@@ -604,8 +650,10 @@ footer .inner {
     width: 15.333333333333333333333333333333%;
 }
 
-button.scroll-top {
-    display: block;
+.scroll-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     width: 40px;
     height: 40px;
@@ -616,9 +664,10 @@ button.scroll-top {
     color: #fff;
     background: #b80257;
     font-size: 25px;
+    
 }
 
-button.scroll-top::after {
+.scroll-top::after {
     position: absolute;
     z-index: -1;
     content: '';
@@ -698,9 +747,14 @@ button.scroll-top::after {
     transition: all .3s ease-in-out;
 }
 
-/* .card.tranding .image::before {
-    content: '⚡';
-    font-family: 'font-awesome';
+.card.tranding::before {
+    background-image: url(../img/img-flash.svg);
+    background-repeat: no-repeat;
+    background-position: 54px 71px;
+    background-size: 15px;
+    content: "";
+    display: block;
+    background-color: #b80257;
     font-size: 24px;
     color: #fff;
     width: 140px;
@@ -710,7 +764,6 @@ button.scroll-top::after {
     right: -77px;
     z-index: 99;
     transform: rotate(35deg);
-    padding: 64px 0 0 53px;
-    background-color: #b80257;
-} */
+} 
+
 /* End sidebar */
