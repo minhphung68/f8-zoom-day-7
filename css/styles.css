@@ -735,6 +735,7 @@ footer .inner {
     padding-left: 25px;
     border-bottom: 1px solid rgba(0,0,0,0.05);
     text-decoration: none;
+    transition: all .3s ease-in-out;
 }
 
 .sidebar .sidebar-list ul li a:hover {
